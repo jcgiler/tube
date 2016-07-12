@@ -1,24 +1,42 @@
 {% extends 'home/base.html' %}
-
 {% block content %}
-    <header>
-        <div id="logo-branding">
-            <img src="/static/home/img/logo-medium.png" alt=":)">
-        </div>
-        <div id="searcher">
-            <div class="col-lg-6">
-                <div class="input-group">
-                    <form action="/video/" method="GET">
-                        <input type="search" class="form-control url-search" name="url" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <input class="btn btn-default" type="submit" value="Go!">
-                        </span>
-                    </form>
+    <main class="m-container center">
+        <section class="brand">
+            <img class="brand__img" src="/static/home/img/1200x438-tubeplanet.png">
+        </section>
+        <section>
+            <form action="" class="formulario" method="GET">
+                <div class="search">
+                    <input class="search__input" type="name" name="" placeholder="https://www.youtube.com/watch?v=iCz8R25hlFI...">
+                    <button class="search__button">GO</button>
                 </div>
+                <div class="radio">
+                    <p style="text-transform: uppercase">Choose your file format</p>
+                    <input type="radio" name="sexo" id="hombre">
+                    <label for="hombre">Video (MP4)</label>
+                    <input type="radio" name="sexo" id="mujer">
+                    <label for="mujer">Audio (MP3)</label>
+                </div>
+            </form>
+        </section>
+        <section class="successful-message">
+            <a href="">
+                <span>Ready for download</span>
+            </a>
+            <span class="icon-cloud-download"></span>
+        </section>
+        <section class="error-message">
+            <a href="">
+                <span>Ooopppsss... Try again</span>
+            </a>
+            <span class="icon-times"></span>
+        </section>
+        <section class="footer-brand">
+            <img class="footer-brand__img" src="/static/home/img/400x400-negro.png">
+            <div class="footer-brand-wrapper">
+                <img class="footer-brand__img" src="/static/home/img/j3w.png">
+                <img class="footer-brand__img" src="/static/home/img/true-hackers.png">
             </div>
-        </div>
-        <div id="skull-badge">
-            <img src="/static/home/img/skull-medium.png" alt=":)">
-        </div>
-    </header>
+        </section>
+    </main>
 {% endblock %}
