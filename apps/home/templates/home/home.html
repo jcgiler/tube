@@ -4,32 +4,34 @@
         <section class="brand">
             <img class="brand__img" src="/static/home/img/1200x438-tubeplanet.png">
         </section>
-        <section>
+        <section class="form-section">
             <form action="" class="formulario" method="GET">
                 <div class="search">
-                    <input class="search__input" type="name" name="" placeholder="https://www.youtube.com/watch?v=iCz8R25hlFI...">
+                    <input class="search__input" type="name" name="url" placeholder="https://www.youtube.com/watch?v=iCz8R25hlFI...">
                     <button class="search__button">GO</button>
                 </div>
                 <div class="radio">
                     <p style="text-transform: uppercase">Choose your file format</p>
-                    <input type="radio" name="sexo" id="hombre">
-                    <label for="hombre">Video (MP4)</label>
-                    <input type="radio" name="sexo" id="mujer">
-                    <label for="mujer">Audio (MP3)</label>
+                    <input type="radio" name="format"  id="audio" value="" checked="checked">
+                    <label for="audio">Audio (MP3)</label>
+                    <input type="radio" name="option"  id="video">
+                    <label for="video">Video (MP4)</label>
                 </div>
             </form>
         </section>
-        <section class="successful-message">
-            <a href="">
-                <span>Ready for download</span>
-            </a>
-            <span class="icon-cloud-download"></span>
-        </section>
-        <section class="error-message">
-            <a href="">
-                <span>Ooopppsss... Try again</span>
-            </a>
-            <span class="icon-times"></span>
+        <section class="messages"> 
+            <div class="successful-message">
+                <a href="">
+                    <span>Ready for download</span>
+                </a>
+                <span class="icon-cloud-download"></span>
+            </div>
+            <div class="error-message">
+                <a href="">
+                    <span>Ooopppsss... Try again</span>
+                </a>
+                <span class="icon-times"></span>
+            </div>
         </section>
         <section class="footer-brand">
             <img class="footer-brand__img" src="/static/home/img/400x400-negro.png">
