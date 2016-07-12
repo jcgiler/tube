@@ -38,6 +38,4 @@ def HomeContent(request):
                         'display_spin': 'none',
                     })
     else:
-        return render(request, template, {
-                'display_spin': 'none',
-            })
+        return render(request, template, {})
