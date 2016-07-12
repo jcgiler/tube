@@ -58,7 +58,8 @@ img {
     color: #fff;
     width: 70%;
     padding: 1.2em;
-    margin: .7em auto
+    margin: .7em auto;
+    cursor: pointer;
 }
 
 .search__button:hover {
