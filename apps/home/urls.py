@@ -1,7 +1,6 @@
 from django.conf.urls import url
-from .views import HomeContent, VideoContent
+from .views import HomeContent
 
 urlpatterns = [
-    url(r'^video/', VideoContent),
     url(r'^', HomeContent)
 ]

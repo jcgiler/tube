@@ -1,9 +1,9 @@
 {% extends 'home/base.html' %}
 {% block content %}
     <main class="m-container center">
-        <section class="brand">
+        <a href="/" class="brand">
             <img class="brand__img" src="/static/home/img/1200x438-tubeplanet.png">
-        </section>
+        </a>
         <section class="form-section">
             <form action="" class="formulario" method="GET">
                 <div class="search">
@@ -20,17 +20,15 @@
             </form>
         </section>
         <section class="messages"> 
-            <div class="successful-message">
-                <a href="">
-                    <span>Ready for download</span>
-                </a>
-                <span class="icon-cloud-download"></span>
-            </div>
-            <div class="error-message">
-                <a href="">
-                    <span>Ooopppsss... Try again</span>
-                </a>
+            <a href="/media/{{ title | urlencode:"" }}.{{ ext }}">
+                <div class="successful-message" style="display: {{ display_success }}">
+                    <span class="icon-cloud-download"></span>
+                    <span>{{ title }}</span>
+                </div>
+            </a>
+            <div class="error-message" style="display: {{ display_error }}">
                 <span class="icon-times"></span>
+                <span>{{ error }}</span>
             </div>
         </section>
         <section class="footer-brand">
