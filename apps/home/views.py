@@ -29,11 +29,15 @@ def HomeContent(request):
                             'title': meta['title'],
                             'ext': meta['ext'],
                             'display_success': 'block',
+                            'display_spin': 'none',
                         })
             except:
                 return render(request, template, {
                         'error': 'Url incorrecta, prueba de nuevo con otra...',
                         'display_error': 'block',
+                        'display_spin': 'none',
                     })
     else:
-        return render(request, template, {})
+        return render(request, template, {
+                'display_spin': 'none',
+            })

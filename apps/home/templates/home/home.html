@@ -8,7 +8,7 @@
             <form action="" class="formulario" method="GET">
                 <div class="search">
                     <input class="search__input" type="name" name="url" placeholder="https://www.youtube.com/watch?v=iCz8R25hlFI...">
-                    <button class="search__button">GO</button>
+                    <button id="search-button" class="search__button">GO</button>
                 </div>
                 <div class="radio">
                     <p style="text-transform: uppercase">Choose your file format</p>
@@ -29,6 +29,19 @@
             <div class="error-message" style="display: {{ display_error }}">
                 <span class="icon-times"></span>
                 <span>{{ error }}</span>
+            </div>
+            <div id="spin-engine" style="text-align: center; display: none">
+              <div class="preloader-wrapper small active">
+                <div class="spinner-layer spinner-green-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
             </div>
         </section>
         <section class="footer-brand">
