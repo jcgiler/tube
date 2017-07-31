@@ -1,55 +1,74 @@
 {% extends 'home/base.html' %}
 {% block content %}
-    <main class="m-container center">
-        <a href="/" class="brand">
-            <img class="brand__img" src="/static/home/img/1200x438-tubeplanet.png">
-        </a>
-        <section class="form-section">
-            <form action="" class="formulario" method="GET">
-                <div class="search">
-                    <input class="search__input" type="name" name="url" placeholder="https://www.youtube.com/watch?v=iCz8R25hlFI...">
-                    <button id="search-button" class="search__button">GO</button>
-                </div>
-                <div class="radio">
-                    <p style="text-transform: uppercase">Choose your file format</p>
-                    <input type="radio" name="option"  id="audio" value="mp3" checked="checked">
-                    <label for="audio">Audio (MP3)</label>
-                    <input type="radio" name="option"  id="video" value="mp4">
-                    <label for="video">Video (MP4)</label>
-                </div>
+
+<nav class="uk-navbar-container uk-margin" uk-navbar uk-sticky>
+    <div class="uk-navbar-center">
+
+        <div class="">
+            <a class="uk-navbar-item uk-logo" href="/"><img id="navlogo" src="/static/home/img/tubeplanet.png"></a>
+        </div>
+
+        <div class="uk-navbar-item">
+            <form action="" method="POST">
+            {% csrf_token %}
+                <select class="uk-select uk-form-width-small" name="option">
+                    <option value="mp3"> Audio (mp3) </option>
+                    <!-- <option value="mp4"> Video (mp4) </option> -->
+                </select>
+                <input id="search-input" class="uk-input uk-form-width-large" type="search" name="url" placeholder="URL">
+                <button id="search-button" class="uk-button uk-button-primary" type="submit">GO!</button>
             </form>
-        </section>
-        <section class="messages"> 
-            <a href="/media/{{ title | urlencode:"" }}.{{ ext }}">
-                <div class="successful-message" style="display: {{ display_success }}">
-                    <span class="icon-cloud-download"></span>
-                    <span>{{ title }}</span>
-                </div>
-            </a>
-            <div class="error-message" style="display: {{ display_error }}">
-                <span class="icon-times"></span>
-                <span>{{ error }}</span>
-            </div>
-            <div id="spin-engine" style="text-align: center; display: none">
-              <div class="preloader-wrapper small active">
-                <div class="spinner-layer spinner-green-only">
-                  <div class="circle-clipper left">
-                    <div class="circle"></div>
-                  </div><div class="gap-patch">
-                    <div class="circle"></div>
-                  </div><div class="circle-clipper right">
-                    <div class="circle"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </section>
-        <section class="footer-brand">
-            <img class="footer-brand__img" src="/static/home/img/400x400-negro.png">
-            <div class="footer-brand-wrapper">
-                <img class="footer-brand__img" src="/static/home/img/j3w.png">
-                <img class="footer-brand__img" src="/static/home/img/true-hackers.png">
-            </div>
-        </section>
-    </main>
+        </div>
+
+    </div>
+</nav>
+
+<div class="uk-container">
+
+    <!-- Messages Section -->
+
+    <div class="uk-section uk-section-xsmall" style="text-align: center;">
+        <div id="error-messages" class="uk-alert-danger" uk-alert style="display: {{ display_error }};">
+           <a class="uk-alert-close" uk-close></a>
+           <p>{{ error }}</p>
+        </div>
+        <div id="success-messages" class="uk-alert-success" uk-alert style="display: {{ display_success }}; margin-top: 0px;">
+           <a class="uk-alert-close" uk-close></a>
+           <p><a href="/media/{{ title }}.{{ ext }}" download><strong>DOWNLOAD</strong></a></p>
+        </div>
+        <div id="load-spinner" uk-spinner style="display: {{ display_spin }};"></div>
+    </div>
+
+    <!-- Archive Media Section -->
+
+<table class="uk-table uk-table-responsive uk-table-divider uk-table-striped uk-table-hover">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Filesize</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for meta in metadata %}
+        <tr>
+            <td>{{ meta.title }}</td>
+            {% if meta.extension == 'mp3' %}
+                <td>Audio/mp3</td>
+            {% else %}
+                <td>Video/mp4</td>
+            {% endif %}
+            <td>{{ meta.duration }} Min</td>
+            <td>{{ meta.filesize }} MB</td>
+            <td>
+                <small><a href="{{ meta.download_url }}" download>DOWNLOAD</a></small>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
 {% endblock %}

@@ -11,4 +11,4 @@
 #
 # By default this script does nothing.
 
-/usr/local/bin/uwsgi --emperor /etc/uwsgi/vassals/
+/usr/local/bin/uwsgi --emperor /etc/uwsgi/vassals/ &

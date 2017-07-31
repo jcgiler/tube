@@ -1,4 +1,6 @@
-Django==1.9.7
-psycopg2==2.6.1
-uWSGI==2.0.13.1
-youtube-dl==2016.7.5
+Django==1.11.3
+ffprobe==0.5
+psycopg2==2.7.3
+pytz==2017.2
+uWSGI==2.0.15
+youtube-dl==2017.7.23
